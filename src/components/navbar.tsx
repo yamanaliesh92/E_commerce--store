@@ -1,13 +1,17 @@
+import Link from "next/link";
 import React from "react";
+import Container from "./ui/container";
 
-export default function Footer() {
+export default function Navbar() {
   return (
-    <footer className="bg-white border-t">
-      <div className="mx-auto py-10">
-        <p className="text-center text-sm text-black">
-          &Copy:2024 KDF Store ,Inc,All right reserved
-        </p>
-      </div>
-    </footer>
+    <div className="border-b">
+      <Container>
+        <div className="relative px-4 sm:px-6 lg:px-8 h-16 flex items-center">
+          <Link href={"/"} className="ml-4 flex lg:ml-0 gap-x-2">
+            <p className="font-bold text-xl">STORE</p>
+          </Link>
+        </div>
+      </Container>
+    </div>
   );
 }
