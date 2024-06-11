@@ -2,9 +2,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { Category } from "../../type";
 
 interface MainNavProps {
-  data: any;
+  data: Category[];
 }
 
 export default function MainNav({ data }: MainNavProps) {
