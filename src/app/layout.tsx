@@ -2,6 +2,7 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
+import { getCat } from "../../actions/get-categories";
 import "./globals.css";
 
 const font = Urbanist({ subsets: ["latin"] });
