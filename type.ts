@@ -18,11 +18,12 @@ export interface Product {
   isFeatured: boolean;
   size: Size[];
   color: Color[];
-  images: Image[];
+  Images: Image[];
 }
 
 interface Image {
   id: string;
+  productId: string;
   url: string;
 }
 
