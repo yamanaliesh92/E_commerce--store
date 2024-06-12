@@ -31,3 +31,9 @@ interface Size {
   name: string;
   value: string;
 }
+
+interface Color {
+  id: string;
+  name: string;
+  value: string;
+}
