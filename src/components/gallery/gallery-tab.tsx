@@ -11,7 +11,7 @@ interface GalleryTabProps {
 
 export default function GalleryTab({ key, image }: GalleryTabProps) {
   return (
-    <Tab className="flex aspect-square cursor-pointer items-center justify-center bg-white rounded-md">
+    <Tab className="flex aspect-square relative cursor-pointer  bg-white rounded-md">
       {({ selected }) => (
         <div>
           <span className="h-full absolute w-full aspect-square inset-0 overflow-hidden rounded-md">
