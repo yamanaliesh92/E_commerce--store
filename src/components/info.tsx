@@ -23,7 +23,7 @@ export default function Info({ data }: InfoProps) {
           <h3 className="font-semibold text-black">Size:</h3>
           <div>{data.size.name}</div>
         </div>
-
+        finished
         <div className="flex items-center gap-x-4">
           <h3 className="font-semibold text-black">Color:</h3>
           <div
