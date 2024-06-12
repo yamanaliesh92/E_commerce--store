@@ -1,11 +1,9 @@
-import { Category } from "../type";
+import { Billboard } from "../type";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/billboards`;
 
-console.log("+++", URL);
-
-export const getBillboard = async (): Promise<Category[]> => {
-  const res = await fetch(URL);
+export const getBillboard = async (id: string): Promise<Billboard> => {
+  const res = await fetch(`${URL}/${id}`);
 
   return await res.json();
 };
