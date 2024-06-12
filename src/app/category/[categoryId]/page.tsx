@@ -1,5 +1,6 @@
 import React from "react";
 import { getProducts } from "../../../../actions/get-products";
+import { getSizes } from "../../../../actions/get-sizes";
 
 interface CategoryPageProps {
   params: { categoryId: string };
@@ -14,5 +15,6 @@ export default async function CategoryPage({
   params,
 }: CategoryPageProps) {
   const products = await getProducts({ categoryId: params.categoryId });
+  const sizes = await getSizes();
   return <div></div>;
 }
