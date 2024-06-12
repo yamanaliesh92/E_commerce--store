@@ -1,3 +1,5 @@
+import Billboard from "@/components/billboard";
+import Container from "@/components/ui/container";
 import React from "react";
 import { getCategory } from "../../../../actions/get-category";
 import { getColors } from "../../../../actions/get-colors";
@@ -12,6 +14,8 @@ interface CategoryPageProps {
   };
 }
 
+export const revalidate = 0;
+
 export default async function CategoryPage({
   searchParams,
   params,
@@ -20,5 +24,11 @@ export default async function CategoryPage({
   const sizes = await getSizes();
   const colors = await getColors();
   const category = await getCategory(params.categoryId);
-  return <div></div>;
+  return (
+    <div className="bg-white">
+      <Container>
+        <Billboard data={category.billboard} />
+      </Container>
+    </div>
+  );
 }
