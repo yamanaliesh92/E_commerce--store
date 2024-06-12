@@ -10,7 +10,7 @@ interface Query {
 }
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
-export const getBillboard = async (query: Query): Promise<Product> => {
+export const getProduct = async (query: Query): Promise<Product> => {
   const url = qs.stringifyUrl({
     url: URL,
     query: {
