@@ -13,7 +13,7 @@ interface ProductCardProps {
 export default function ProductCard({ data }: ProductCardProps) {
   const router = useRouter();
   const handleClick = () => {
-    router.push(`/products/${data.id}`);
+    router.push(`/product/${data.id}`);
   };
   return (
     <div
