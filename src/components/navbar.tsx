@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { getCategories } from "../../actions/get-categories";
 import MainNav from "./main-nav";
+import NavbarAction from "./navbar-action";
 import Container from "./ui/container";
 
 export default async function Navbar() {
@@ -14,6 +15,7 @@ export default async function Navbar() {
             <p className="font-bold text-xl">STORE</p>
           </Link>
           <MainNav data={categories} />
+          <NavbarAction />
         </div>
       </Container>
     </div>
