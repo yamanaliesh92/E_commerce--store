@@ -1,4 +1,5 @@
 import React from "react";
+import { getColors } from "../../../../actions/get-colors";
 import { getProducts } from "../../../../actions/get-products";
 import { getSizes } from "../../../../actions/get-sizes";
 
@@ -16,5 +17,6 @@ export default async function CategoryPage({
 }: CategoryPageProps) {
   const products = await getProducts({ categoryId: params.categoryId });
   const sizes = await getSizes();
+  const colors = await getColors();
   return <div></div>;
 }
