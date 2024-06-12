@@ -2,6 +2,7 @@ import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
 import React from "react";
 import { getProduct } from "../../../../actions/get-product";
+import { getProducts } from "../../../../actions/get-products";
 
 export default async function ProductPage({
   params,
@@ -9,6 +10,10 @@ export default async function ProductPage({
   params: { productId: string };
 }) {
   const product = await getProduct(params.productId);
+
+  const suggestionProduct = await getProducts({
+    categoryId: product.category.id,
+  });
 
   return (
     <div className="bg-white">
@@ -19,6 +24,7 @@ export default async function ProductPage({
             <div className="mt-10 px-4 sm:mt-16 lg:mt-0">Info</div>
           </div>
           <hr className="my-10" />
+          <ProductList items={suggestionProduct} title="Related items" />
         </div>
       </Container>
     </div>
