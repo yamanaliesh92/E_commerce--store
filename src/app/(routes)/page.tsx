@@ -1,5 +1,15 @@
+import Billboard from "@/components/billboard";
+import Container from "@/components/ui/container";
 import React from "react";
 
+export const revalidate = 0;
+
 export default function HomePage() {
-  return <div>home</div>;
+  return (
+    <Container>
+      <div className="space-y-10 pb-10">
+        <Billboard />
+      </div>
+    </Container>
+  );
 }
