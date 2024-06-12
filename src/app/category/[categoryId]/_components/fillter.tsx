@@ -4,6 +4,7 @@ import React from "react";
 import { Color, Size } from "../../../../../type";
 import qs from "query-string";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface FilterProps {
   valueKey: string;
@@ -37,7 +38,15 @@ export default function Filter({ valueKey, name, data }: FilterProps) {
       <div className="flex flex-wrap gap-2">
         {data.map((filter) => (
           <div className="flex items-center" key={filter.id}>
-            <Button>{filter.name}</Button>
+            <Button
+              onClick={() => onClick(filter.id)}
+              className={cn(
+                "border text-sm border-gray-300 rounded-md text-gray-800 bg-white p-2 ",
+                selectedValue === filter.id && "bg-black text-white"
+              )}
+            >
+              {filter.name}
+            </Button>
           </div>
         ))}
       </div>
