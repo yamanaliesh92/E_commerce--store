@@ -1,4 +1,5 @@
 import Gallery from "@/components/gallery";
+import Info from "@/components/info";
 import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
 import React from "react";
@@ -23,7 +24,9 @@ export default async function ProductPage({
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
             {/* <div>{product.name}</div> */}
             <Gallery images={product.Images} />
-            <div className="mt-10 px-4 sm:mt-16 lg:mt-0">Info</div>
+            <div className="mt-10 px-4 sm:mt-16 lg:mt-0">
+              <Info data={product} />
+            </div>
           </div>
           <hr className="my-10" />
           <ProductList items={suggestionProduct} title="Related items" />
