@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import IconButton from "@/components/ui/icon-butoon";
 import { Dialog, DialogPanel } from "@headlessui/react";
@@ -30,16 +31,17 @@ export default function MobileFilter({ sizes, colors }: MobileFilterProps) {
         {/* Background */}
         <div className="fixed inset-0 bg-black bg-opacity-25" />
         <div className="fixed inset-0 z-40 flex">
-          <DialogPanel className="flex relative flex-col w-full h-full ml-auto max-w-xs overflow-y-auto py-4 pb-6 bg-white">
+          <DialogPanel className="flex relative flex-col w-full h-full  max-w-xs overflow-y-auto py-4 pb-6 bg-white">
             <div className="flex items-center px-4 justify-end">
               <IconButton icon={<X size={15} />} onClick={onClose} />
             </div>
+
+            {/* render the filter */}
+            <div className="p-4">
+              <Filter valueKey="sizeId" name="sizes" data={sizes} />
+              <Filter valueKey="colorId" name="colors" data={colors} />
+            </div>
           </DialogPanel>
-          {/* render the filter */}
-          <div className="p-4">
-            <Filter valueKey="sizeId" name="sizes" data={sizes} />
-            <Filter valueKey="colorId" name="colors" data={colors} />
-          </div>
         </div>
       </Dialog>
     </>
