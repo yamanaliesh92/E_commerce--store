@@ -1,5 +1,6 @@
 import Billboard from "@/components/billboard";
 import Container from "@/components/ui/container";
+import NoResult from "@/components/ui/no-result";
 import React from "react";
 import { getCategory } from "../../../../actions/get-category";
 import { getColors } from "../../../../actions/get-colors";
@@ -25,6 +26,7 @@ export default async function CategoryPage({
   const sizes = await getSizes();
 
   const colors = await getColors();
+  console.log("color", colors);
   const category = await getCategory(params.categoryId);
   return (
     <div className="bg-white">
@@ -34,6 +36,10 @@ export default async function CategoryPage({
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-6">
             <div className="hidden lg:block">
               <Filter valueKey="sizeId" name="sizes" data={sizes} />
+              <Filter valueKey="colorId" name="colors" data={colors} />
+            </div>
+            <div className="mt-6 lg:col-span-4 lg:mt-0">
+              {products.length === 0 && <NoResult />}
             </div>
           </div>
         </div>
