@@ -1,4 +1,5 @@
 import Billboard from "@/components/billboard";
+import ProductCard from "@/components/product-card";
 import Container from "@/components/ui/container";
 import NoResult from "@/components/ui/no-result";
 import React from "react";
@@ -40,6 +41,11 @@ export default async function CategoryPage({
             </div>
             <div className="mt-6 lg:col-span-4 lg:mt-0">
               {products.length === 0 && <NoResult />}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {products.map((item) => (
+                  <ProductCard key={item.id} data={item} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
