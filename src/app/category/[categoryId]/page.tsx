@@ -8,6 +8,7 @@ import { getColors } from "../../../../actions/get-colors";
 import { getProducts } from "../../../../actions/get-products";
 import { getSizes } from "../../../../actions/get-sizes";
 import Filter from "./_components/fillter";
+import MobileFilter from "./_components/mobile-fillter";
 
 interface CategoryPageProps {
   params: { categoryId: string };
@@ -27,7 +28,7 @@ export default async function CategoryPage({
   const sizes = await getSizes();
 
   const colors = await getColors();
-  console.log("color", colors);
+
   const category = await getCategory(params.categoryId);
   return (
     <div className="bg-white">
@@ -35,6 +36,7 @@ export default async function CategoryPage({
         <Billboard data={category.billboard} />
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-6">
+            <MobileFilter sizes={sizes} colors={colors} />
             <div className="hidden lg:block">
               <Filter valueKey="sizeId" name="sizes" data={sizes} />
               <Filter valueKey="colorId" name="colors" data={colors} />
