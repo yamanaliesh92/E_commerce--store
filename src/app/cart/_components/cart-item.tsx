@@ -3,11 +3,16 @@ import IconButton from "@/components/ui/icon-butoon";
 import { X } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { useCart } from "../../../../hooks/use-cart";
 import { Product } from "../../../../type";
 interface CartItemProps {
   data: Product;
 }
 export default function CartItem({ data }: CartItemProps) {
+  const cart = useCart();
+  const onRemove = () => {
+    cart.removeItem(data.id);
+  };
   return (
     <div className="flex py-6 border-b">
       <div className="h-24 relative w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">

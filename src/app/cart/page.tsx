@@ -1,3 +1,4 @@
+"use client";
 import Container from "@/components/ui/container";
 import React from "react";
 import { useCart } from "../../../hooks/use-cart";
