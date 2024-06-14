@@ -1,6 +1,7 @@
 import Container from "@/components/ui/container";
 import React from "react";
 import { useCart } from "../../../hooks/use-cart";
+import CartItem from "./_components/cart-item";
 
 export default function CartPage() {
   const cart = useCart();
@@ -14,6 +15,9 @@ export default function CartPage() {
               {cart.items.length === 0 && (
                 <p className="text-neutral-500">No items added it cart</p>
               )}
+              {cart.items.map((item) => (
+                <CartItem key={item.id} data={item} />
+              ))}
             </div>
           </div>
         </div>
