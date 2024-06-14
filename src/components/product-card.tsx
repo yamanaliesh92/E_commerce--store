@@ -2,7 +2,8 @@
 import { Expand, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { MouseEventHandler } from "react";
+import { usePreviewModal } from "../../hooks/use-preview.model";
 import { Product } from "../../type";
 import Currency from "./ui/currency";
 import IconButton from "./ui/icon-butoon";
@@ -12,8 +13,14 @@ interface ProductCardProps {
 }
 export default function ProductCard({ data }: ProductCardProps) {
   const router = useRouter();
+  const PreviewModal = usePreviewModal();
   const handleClick = () => {
     router.push(`/product/${data.id}`);
+  };
+  const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
+    console.log("FFFFFFFFFFFF");
+    event.stopPropagation();
+    PreviewModal.onOpen(data);
   };
   return (
     <div
@@ -30,7 +37,7 @@ export default function ProductCard({ data }: ProductCardProps) {
         <div className="opacity-0 group-hover:opacity-100 absolute transition w-full px-6 bottom-5  ">
           <div className="flex gap-x-6 justify-center">
             <IconButton
-              onClick={() => {}}
+              onClick={onPreview}
               icon={<Expand size={20} className="text-gray-600" />}
             />
             <IconButton
