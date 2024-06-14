@@ -3,6 +3,7 @@ import Container from "@/components/ui/container";
 import React from "react";
 import { useCart } from "../../../hooks/use-cart";
 import CartItem from "./_components/cart-item";
+import Summary from "./_components/summary";
 
 export default function CartPage() {
   const cart = useCart();
@@ -20,6 +21,7 @@ export default function CartPage() {
                 <CartItem key={item.id} data={item} />
               ))}
             </div>
+            <Summary />
           </div>
         </div>
       </Container>
